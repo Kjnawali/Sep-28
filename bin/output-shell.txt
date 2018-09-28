@@ -1,0 +1,443 @@
+[H[2JList all the shell script contains in the directory.
+Listing is: ExeCom.sh
+SetNVarEx.sh
+arithmatic.sh
+arrayexm.sh
+comdlinevar.sh
+comments.sh
+displayEnvVAr.sh
+env.sh
+errors.sh
+expression.sh
+forsample.sh
+ifcomdguess.sh
+ifexp.sh
+ifthenelse.sh
+mytest.sh
+null.sh
+practice.sh
+readsample.sh
+substitution.sh
+test.sh
+File: ExeCom.sh
+SetNVarEx.sh
+arithmatic.sh
+arrayexm.sh
+comdlinevar.sh
+comments.sh
+displayEnvVAr.sh
+env.sh
+errors.sh
+expression.sh
+forsample.sh
+ifcomdguess.sh
+ifexp.sh
+ifthenelse.sh
+mytest.sh
+null.sh
+practice.sh
+readsample.sh
+substitution.sh
+test.sh -contents #!/bin/bash
+
+# This line is intended to be used as a general description of the script
+
+# and anything that it does
+
+ 
+
+clear    # clears the screen
+
+ 
+
+# MYUSERNAME="Terry"    # the username for this application
+
+MYUSERNAME="Don" # new username added later
+
+ 
+
+echo "We are using the default user called: $MYUSERNAME" # display to the console
+
+ 
+
+DATETIMESTAMP=`date`
+
+ 
+
+echo "This is when the script was run: $DATETIMESTAMP" # this is the timestamp of run!
+
+
+
+
+#!/bin/bash
+# exercise number 2
+
+MYUSERNAME="KISHOR"
+MYPASSWORD="JNAWALI"
+STARTOFSCRIPT=`date`
+ENDOFSCRIPT=`date`
+
+echo "The user name of the system is: $MYUSERNAME"
+echo ""	
+echo "The password of the computer is: $MYPASSWORD"
+echo ""
+echo "The initial script of the system is: $STARTOFSCRIPT"
+echo ""
+echo "The system end of script is: $ENDOFSCRIPT"
+echo ""
+#!/bin/bash
+
+# evaluating the arithematic expression
+
+set -e
+expr 1 + 5
+echo $?
+echo ""
+
+rm pgarf.sh
+echo $?
+
+echo ""
+expr 0 + 10
+echo $?
+echo "" 
+
+#!/bin/bash
+
+# some simple array list and loop for display
+
+SERVERLIST=("webser01" "webser02" "webser03" "webser04")
+COUNT=0
+
+for INDEX in ${SERVERLIST[@]}; do
+
+ echo "Processing Server: ${SERVERLIST[COUNT]}"
+
+COUNT="`expr $COUNT + 1` "
+
+done
+
+#!/bin/bash
+#demo of command line values passed in with our shell script
+
+
+USERNAME=$1
+PASSWORD=$2
+
+echo "The following item's username is $USERNAME and the password is $PASSWORD"
+
+
+#!/bin/bash
+# This line is intended to be used as a general description of the script
+# and anything that it does
+
+clear    # clears the screen
+ 
+#MYUSERNAME="Kishor"  #the user name for this application
+MYUSERNAME="Don"  #the new user mane is added later on
+
+echo "We are using the defult user called: $MYUSERNAME"  #display to the console
+
+DATETIMESTAMP=`date`
+
+echo "This is when the script was run: $DATETIMESTAMP"   #this is the timestamp of run
+
+#1/bin/bash
+
+#exercise
+
+clear
+
+echo "This script will give us environment information"
+echo "================================================"
+echo "User name of this system is: $USERNAME"
+echo ""
+echo "Please display the home: $HOME"
+echo ""
+echo "Display the histcontrol: $HISTCONTROL"
+echo ""
+echo "Its time to diplay: $TERM"
+echo ""
+
+#!/bin/bash
+
+clear
+
+echo "this script will give us environment information"
+echo "================================================"
+echo ""
+echo "Username Hello: $USER"
+echo "Your Home Directory is: $/Users/kjnawali"
+echo ""
+echo "Your History File Will Ignore: $HISTCONTROL"
+echo ""
+echo "Your Terminal Session Type is: $TERM"
+echo ""
+
+
+#!/bin/bash
+# this is to show exit status types
+
+set -e
+
+expr 1 + 5
+echo $?
+rm doodles.sh
+echo $?
+
+expr 10 + 10
+echo $?
+
+#1/bin/bash
+
+# expression evaluation
+
+expr 2 + 2
+expr 2 + 2 \* 340
+expr \( 9 - 2 \) \* 1530
+
+#!/bin/bash
+# Demo of the "For" loop
+# echo "List all the shell script contains in the directory."
+
+# SHELLSCRIPTS=`ls *.sh`
+
+# echo "Listing is: $SHELLSCRIPTS"
+
+
+
+#=================================================
+# using of the FOR loop
+#==================================================
+
+clear
+
+echo "List all the shell script contains in the directory."
+
+SHELLSCRIPTS=`ls *.sh`
+
+echo "Listing is: $SHELLSCRIPTS"
+
+for SCRIPT in "$SHELLSCRIPTS" ; do
+
+DISPLAY="`cat $SCRIPT`"
+
+echo "File: $SCRIPT -contents $DISPLAY"
+
+done
+
+
+#!/bin/bash
+
+# Guessing a number
+echo "guess a secret number."
+echo "======================="
+echo ""
+echo "Enter a number between 1 & 5."
+echo ""
+read GUESS
+
+if [ $GUESS -eq 3 ]
+ then
+echo "You Guessed the correct number!"
+fi
+
+#!/bin/bash
+
+# test the multiple expression and if statement
+clear
+
+FILENAME=$1
+
+echo "testing for file $FILENAME & realibility."
+
+if [ -f $FILENAME ] && [ -r $FILENAME ]
+
+then 
+  echo "File $FILENAME exist and is reliable."
+
+fi
+
+#!/bin/bash
+
+# to test the numner inserted
+
+# echo "enter a number between 1 & 3:"
+# read VALUE
+# if [ "$VALUE" -eq "1" ] 
+# then 
+# echo "You entered the number $VALUE."
+
+# fi
+#==========================================
+# use the syntex then 
+# clear 
+# echo "enter a number between 1 & 3:"
+
+# VALUE=$1 $2
+
+# read VALUE
+# if [ "$VALUE" -eq "1" ] ; [ "$VALUE" -eq "3" ]
+# then 
+# echo "You entered the number $VALUE."
+
+# fi
+# above syntex didnot work proper way...
+
+#==============================================
+
+# use of the ||
+# echo "enter a number between 1 & 3:"
+
+# read VALUE
+
+# if [ "$VALUE" -eq "1" ] || [ "$VALUE" -eq "2" ] || [ "$VALUE" -eq "3" ]
+
+# then
+
+# echo "You entered the number $VALUE !"
+
+# fi
+#================================================
+# use of else
+
+echo "enter a number between 1 & 3:"
+
+read VALUE
+
+if [ "$VALUE" -eq "1" ] || [ "$VALUE" -eq "2" ] || [ "$VALUE" -eq "3" ]
+
+ then
+
+echo "You entered the number $VALUE !"
+
+else
+  echo "You did not follow the direction!"
+
+fi
+#==================================================
+# use of the 2>/dev/null/
+
+# echo "enter a number between 1 & 3:"
+
+# read VALUE
+
+# if [ "$VALUE" -eq "1" ] 2>/dev/null || [ "$VALUE" -eq "2" ] 2>/dev/null || [ "$VALUE" -eq "3" ] 2>/dev/null
+
+# then
+
+# echo "You entered the number $VALUE !"
+
+#================================================
+# use of the elis
+
+clear
+
+echo "enter a number between 1 & 3:"
+
+read VALUE
+
+if [ "$VALUE" -eq "1" ] 2>/dev/null ;
+then 
+echo "You entered #1"
+
+elif
+ [ "$VALUE" -eq "2" ] 2>/dev/null ;
+then 
+echo "You entered #2"
+
+elif
+ [ "$VALUE" -eq "3" ] 2>/dev/null ;
+
+ then
+echo "You entered #3"
+
+else
+  echo "You did not follow the direction!"
+
+fi
+
+
+#!/bin/bash
+
+# test for the existance of the of indicated file name
+
+FILENAME="$1"
+echo "testing for existance of a file name $FILENAME"
+
+if [ ! -a $FILENAME ]
+ then 
+  echo "File $FILENAME Doesnot exist!"
+fi
+
+#!/bin/bash
+
+#redirect to dev/null example
+
+echo "This is displaying on the console"
+echo "This is going into the blackhole" >>/dev/null
+
+
+
+#!/bin/bash
+# array practice session
+SERVLIST=("webserv01" "webserv02" "webserv03" "webserv04" )
+COUNT=0
+
+for INDEX in ${SERVLIST[@]}; do
+echo "Processing Server: ${SERVLIST[COUNT]}"
+COUNT="`expr $COUNT + 1`"
+done
+
+
+
+
+#!/bin/bash
+#interactive script for the user input
+
+echo "Enter your first name: "
+
+read FIRSTNAME
+
+echo "HellO $FIRSTNAME"
+echo "Enter your Last Name: "
+read LASTNAME
+
+echo ""
+
+echo "Your Full Name is: $FIRSTNAME $LASTNAME"
+
+echo ""
+
+echo "Enter Your Age: "
+
+read USERAGE
+
+echo "In 10 years, you will be `expr $USERAGE + 10` years old."
+
+
+#!/bin/bash
+
+# This script is intended to show how to do simple substitution
+
+
+clear # to clear the past events
+
+TODAYSDATE=`date`
+USERFILES=`find /Users/kjnawali/Documents`
+
+echo "Today's Date: $TODAYSDATE"
+
+echo "All Files Ownes by the USER: $USERFILES"
+
+
+
+#!/bin/bash
+
+
+clear
+
+
+
+
+echo "hello world"

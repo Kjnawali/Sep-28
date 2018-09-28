@@ -1,0 +1,18 @@
+#!/bin/bash
+
+MYUSERNAME="username"
+MYPASSWD="1234"
+startofscript='date'
+LOGINDATE='date'
+
+echo "my login name for this application is: $MYUSERNAME"
+echo "My login password for this application is: $MYPASSWD"
+echo "I started this script at: $STARTOFSCRIPT"
+
+ENDOFSCRIPT='date'
+
+echo "I ended this script at: $ENDOFSCRIPT"
+
+
+
+
